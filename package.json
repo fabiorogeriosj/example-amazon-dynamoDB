@@ -1,0 +1,24 @@
+{
+  "name": "exemplonosql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabiorogeriosj/example-amazon-dynamoDB.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fabiorogeriosj/example-amazon-dynamoDB/issues"
+  },
+  "homepage": "https://github.com/fabiorogeriosj/example-amazon-dynamoDB#readme",
+  "dependencies": {
+    "aws-sdk": "^2.7.20",
+    "express": "^4.14.0",
+    "jade": "^1.11.0"
+  }
+}
