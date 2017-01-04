@@ -1,0 +1,91 @@
+body, html {
+  background-color: #f2f2f2;
+  color: #555555;
+}
+* {
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+.usuarios {
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: #fff;
+  box-shadow: 0 0 5px #a2a2a2;
+  padding: 5px;
+  width: 250px;
+  overflow-x: hidden;
+  min-height: 100%;
+}
+.usuarios .usuario,
+.chat .mensagem {
+  display: flex;
+  padding: 5px;
+}
+.usuarios .usuario.principal,
+.chat .mensagem.principal {
+  background-color: #4a4a4a;
+  color: #fff;
+}
+.usuarios img,
+.mensagem img {
+  height: 37px;
+  float: left;
+  margin-right: 5px;
+}
+.usuarios h1,
+.mensagem h1 {
+  margin: 0;
+  font-size: 14px;
+  float: left;
+}
+.usuarios p,
+.mensagem p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+}
+.mensagem p {
+  font-size: 14px;
+}
+.editor {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.editor input {
+  background-color: #fff;
+  box-shadow: 0 0 5px #a2a2a2;
+  padding: 10px;
+  padding-right: 280px;
+  border:none;
+  font-size: 14px;
+  width: 100%;
+  display: none;
+}
+.chat {
+  padding: 10px;
+  padding-top: 50px;
+  padding-right: 270px;
+}
+.chat .mensagem h1 span {
+  font-weight: 400;
+  font-size: 11px;
+  color: #676767;
+  margin-left: 10px;
+}
+#lodin-fb {
+  background: #4267b2;
+  border: 1px solid #4267b2;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 7px;
+  margin: 10px;
+  margin-left: 15px;
+}
+
