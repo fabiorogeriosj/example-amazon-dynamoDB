@@ -9,7 +9,7 @@ body, html {
   margin: 0;
   padding: 0;
 }
-.usuarios {
+.salas {
   position: fixed;
   right: 0;
   top: 0;
@@ -20,29 +20,83 @@ body, html {
   overflow-x: hidden;
   min-height: 100%;
 }
-.usuarios .usuario,
+.salas h2 {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 5px;
+}
+.salas a {
+  text-decoration: none;
+}
+.salas .sala,
 .chat .mensagem {
   display: flex;
   padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-.usuarios .usuario.principal,
-.chat .mensagem.principal {
-  background-color: #4a4a4a;
+.salas .sala {
+  cursor: pointer;
+  border-bottom: 1px solid #e2e2e2;
+}
+.salas form.form {
+  padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: none;
+}
+.salas h2.form {
+  display: none;
+}
+.salas a.new{
+  color: #009688;
+  text-decoration: underline;
+  font-size: 13px;
+  margin: 10px;
+  cursor: pointer;
+}
+.salas .form input {
+  width: 100%;
+  padding: 7px;
+}
+.salas .form button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #3d9141;
   color: #fff;
+  font-size: 14px;
+  width: 100%;
+  border:1px solid #296a2d;
+  padding: 7px;
 }
-.usuarios img,
+.salas .sala:hover {
+  background-color: #e7e7e7;
+}
+.salas .sala.principal,
+.chat .mensagem.principal {
+  background-color: #8dc48f;
+}
+.salas img,
 .mensagem img {
   height: 37px;
   float: left;
   margin-right: 5px;
 }
-.usuarios h1,
+.salas img {
+  margin-right: 10px;
+}
+.salas h1,
 .mensagem h1 {
   margin: 0;
   font-size: 14px;
   float: left;
+  color: #555555;
 }
-.usuarios p,
+.salas .principal h1 {
+  color: #29362a;
+}
+.salas p,
 .mensagem p {
   margin: 0;
   font-size: 12px;
@@ -56,10 +110,10 @@ body, html {
   position: fixed;
   top: 0;
   left: 0;
-}
-.editor input {
   background-color: #fff;
   box-shadow: 0 0 5px #a2a2a2;
+}
+.editor input {
   padding: 10px;
   padding-right: 280px;
   border:none;
@@ -69,7 +123,7 @@ body, html {
 }
 .chat {
   padding: 10px;
-  padding-top: 50px;
+  padding-top: 60px;
   padding-right: 270px;
 }
 .chat .mensagem h1 span {
@@ -88,4 +142,3 @@ body, html {
   margin: 10px;
   margin-left: 15px;
 }
-

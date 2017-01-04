@@ -1,0 +1,45 @@
+html
+  head
+    meta(charset='utf-8')
+    title LoremChat
+    link(href='https://fonts.googleapis.com/css?family=Lato:400,900', rel='stylesheet')
+    link(href='/css/estilo.css', rel='stylesheet')
+  body
+    div(id="fb-root")
+    p= error
+    script(src="http://connect.facebook.net/pt_BR/all.js")
+    div(class="editor")
+      button(id="lodin-fb", type="button") Logar com Facebook para enviar mensagens na sala <strong>#{sala}</strong>
+      span(id="aviso") Para ver as mensagens em tempo real você precisa estar logado!
+      input(type="text", id="editor", placeholder="Digite uma mensagem e pressione enter para enviar...", autofocus="true")
+    div(class="chat")
+      each mensagem in mensagens
+          div(class="mensagem")
+            img(src=mensagem.usuario.photo)
+            h1= mensagem.usuario.name
+              span= moment(mensagem.timestamp).fromNow()
+              p= mensagem.mensagem
+
+    div(class="salas")
+      h2 Salas oficiais
+      each sala in salas
+          a(href="/"+sala.nome)
+            div.sala(class=sala.principal?"principal":"")
+              img(src="/img/"+sala.icone)
+              h1= sala.nome
+                p= sala.descricao
+      h2= salasPorLink.length ? "Salas por link" : ""
+      each sala in salasPorLink
+          a(href="/"+sala.nome)
+            div.sala(class=sala.principal?"principal":"")
+              img(src="/img/"+sala.icone)
+              h1= sala.nome
+                p= sala.descricao
+      a(class="new", onClick="criarNovaSala()", id="linkNovaSala") Criar uma sala
+      h2(class="form") Crie sua sala
+      form(class="form", id="formnovasala", method="GET", action="/")
+        input(id="novasala", placeholder="Digite o nome da sala")
+        p Apenas os usuários com o link desta sala poderam participar da conversa!
+        button(type="submit") Criar nova sala
+    script(src="/js/jquery-3.1.1.min.js")
+    script(src="/js/script.js")
