@@ -31,7 +31,7 @@ var salas = [
   {
     nome: 'filme',
     icone: 'youtube.png',
-    descricao: 'O que ta rolando sobre filmes, séries e novalas?'
+    descricao: 'O que ta rolando sobre filmes, séries e novelas?'
   },
   {
     nome: 'festa',

@@ -56,6 +56,18 @@ function exibirBotaoLogar(){
   $('#aviso').show();
 }
 
+$('#iconmenu').click(function(){
+  if($('.salas').first().css('margin-right') === "-240px"){
+    $('.salas').first().animate({
+      marginRight: "0"
+    },100);
+  } else {
+    $('.salas').first().animate({
+      marginRight: "-240px"
+    },100);
+  }
+});
+
 $('#editor').keyup(function(e){
     if(e.keyCode == 13 && usuario && usuario.email){
         var mensagem = $(this).val().trim();

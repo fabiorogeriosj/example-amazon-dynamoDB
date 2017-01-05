@@ -186,3 +186,23 @@ body, html {
   margin-right: 10px;
   width: 20px;
 }
+#iconmenu {
+  display: none;
+  position: absolute;
+  margin-left: -21px;
+  height: 25px;
+}
+@media (max-width: 600px) {
+  .salas {
+    margin-right: -240px;
+  }
+  .chat {
+    padding-right: 20px;
+  }
+  .editor input {
+    padding-right: 30px;
+  }
+  #iconmenu {
+    display: block;
+  }
+}
