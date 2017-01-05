@@ -2,6 +2,8 @@ var AWS = require('aws-sdk');
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 app.locals.moment = require('moment');
 app.locals.moment.locale('pt-br');
 
@@ -9,9 +11,7 @@ app.locals.moment.locale('pt-br');
 app.use(express.static(__dirname+'/www'));
 app.set('views', __dirname+'/www');
 app.set('view engine', 'jade');
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 AWS.config.update({region: 'sa-east-1'});
@@ -49,6 +49,13 @@ var salas = [
     descricao: 'Duas canetas um papel e bora pro papo de universitários :)'
   },
 ];
+
+io.on('connection', function (socket) {
+  io.emit('userConnections', io.engine.clientsCount);
+});
+io.on('disconnect', function (socket) {
+  io.emit('userConnections', io.engine.clientsCount);
+});
 
 //rotas
 app.get('/*', function (req, res) {
@@ -120,14 +127,15 @@ app.post('/*', function(req, res){
     };
     docClient.put(params, function(err, data) {
         if (err) {
-            res.jsonp({isValid:false, data:err})
+            res.jsonp({isValid:false, data:err});
         } else {
-            res.jsonp({isValid:true, data:data})
+            res.jsonp({isValid:true, data:params.Item});
+            io.emit('sala:'+sala+':message', params.Item);
         }
     });
   }
 });
 
-app.listen(80, function () {
+server.listen(80, function () {
   console.log('appdynamodb rodando na porta 80!')
 });

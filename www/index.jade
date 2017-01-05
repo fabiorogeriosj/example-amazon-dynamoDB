@@ -8,13 +8,14 @@ html
     div(id="fb-root")
     p= error
     script(src="http://connect.facebook.net/pt_BR/all.js")
+    div(id="notificacao") <img src="/img/key-up.png"> <span>4 novas mensagens não lidas</span>
     div(class="editor")
       button(id="lodin-fb", type="button") Logar com Facebook para enviar mensagens na sala <strong>#{sala}</strong>
       span(id="aviso") Para ver as mensagens em tempo real você precisa estar logado!
-      input(type="text", id="editor", placeholder="Digite uma mensagem e pressione enter para enviar...", autofocus="true")
+      input(type="text", id="editor", disabled="true" placeholder="Entrando na sala "+sala+"...", autofocus="true")
     div(class="chat")
       each mensagem in mensagens
-          div(class="mensagem")
+          div(class="mensagem", id=mensagem.timestamp)
             img(src=mensagem.usuario.photo)
             h1= mensagem.usuario.name
               span= moment(mensagem.timestamp).fromNow()
@@ -41,5 +42,10 @@ html
         input(id="novasala", placeholder="Digite o nome da sala")
         p Apenas os usuários com o link desta sala poderam participar da conversa!
         button(type="submit") Criar nova sala
+      div(id="footer")
+
     script(src="/js/jquery-3.1.1.min.js")
+    script(src="/js/moment.min.js")
+    script(src="/js/moment-with-locales.min.js")
+    script(src="/socket.io/socket.io.js")
     script(src="/js/script.js")
