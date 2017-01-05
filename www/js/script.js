@@ -142,6 +142,9 @@ function criarNovaSala(){
 
 function initSocketIO(){
   var sala = location.pathname.replace("/","");
+  if(!sala){
+    sala = "geral";
+  }
   var socket = io.connect(location.origin);
   socket.on('userConnections', function (data) {
     var msg = data > 1 ? " usuários online." : " usuário online.";
